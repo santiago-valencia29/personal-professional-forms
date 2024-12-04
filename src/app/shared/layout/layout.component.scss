@@ -1,0 +1,27 @@
+@use 'src/app/styles/variables' as variables;
+@use 'src/app/styles/colors' as colors;
+
+.layout {
+  width: 100%;
+}
+
+.layout-sidebar {
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+
+  @media (max-width: variables.$small) {
+    width: 218px;
+  }
+}
+
+.layout-content {
+  background-color: colors.$background-color;
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
+
+  @media (max-width: variables.$small) {
+    width: 100%;
+  }
+}
+
+

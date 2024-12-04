@@ -1,0 +1,28 @@
+<mat-list>
+  <mat-nav-list routerLink="{{ routes.HOME }}" routerLinkActive="active">
+    <div class="icon-text-container">
+      <mat-icon>home</mat-icon>
+      <span mat-line>Home</span>
+    </div>
+  </mat-nav-list>
+  <mat-nav-list routerLink="{{ routes.UI_ELEMENTS }}" routerLinkActive="active">
+    <div class="icon-text-container">
+      <mat-icon>filter_none</mat-icon>
+      <span> UI Elements</span>
+    </div>
+  </mat-nav-list>
+  <mat-list>
+    <mat-nav-list class="ui-element" routerLink="{{ routes.UI_ICONS }}" routerLinkActive="active">
+      <div class="icon-text-container">
+        <mat-icon>star</mat-icon>
+        <span>icons</span>
+      </div>
+    </mat-nav-list>
+    <mat-nav-list class="ui-element" routerLink="{{ routes.UI_SLIDER }}" routerLinkActive="active">
+      <div class="icon-text-container">
+        <mat-icon>linear_scale</mat-icon>
+        <span>Slider</span>
+      </div>
+    </mat-nav-list>
+  </mat-list>
+</mat-list>

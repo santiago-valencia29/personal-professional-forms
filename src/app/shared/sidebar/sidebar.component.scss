@@ -1,0 +1,64 @@
+@use 'src/app/styles/colors' as colors;
+@use 'src/app/styles/font' as font;
+@use 'src/app/styles/variables' as variables;
+
+mat-list {
+  border-bottom: 1px solid colors.$gray-80;
+  width: variables.$sidebar-width;
+  padding-bottom: 16px;
+
+  & mat-nav-list {
+    cursor: pointer;
+    color: variables.$sidebar-font-color;
+    width: auto;
+    padding-left: 15px;
+    &.active {
+      color: variables.$sidebar-font-color-active;
+      background-color: variables.$sidebar-background-color-active;
+      outline: none;
+
+      & mat-icon {
+        color: variables.$sidebar-icon-color-active;
+      }
+    }
+
+    &:hover {
+      background-color: variables.$sidebar-background-color-hover;
+
+      & mat-icon {
+        color: variables.$sidebar-icon-color-active;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+}
+
+.mat-icon {
+  margin-right: 10px;
+  color: variables.$sidebar-icon-color;
+}
+
+.sidebar-title {
+  color: variables.$sidebar-title-color;
+  font-size: font.$fs-normal;
+  text-transform: uppercase;
+  margin-top: 32px;
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+mat-list mat-nav-list.ui-element {
+  padding-left: 40px;
+}
+
+.link {
+  text-decoration: none;
+}

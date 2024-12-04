@@ -1,0 +1,378 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@use 'src/app/styles/colors' as colors;
+@use 'src/app/styles/variables' as variables;
+@use 'src/app/styles/font' as font;
+
+// bootstrap V5
+@use 'bootstrap/scss/bootstrap';
+
+// Animate.css
+@use 'animate.css';
+
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$init-angular-template-primary: mat.define-palette(mat.$indigo-palette);
+$init-angular-template-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
+
+// The warn palette is optional (defaults to red).
+$init-angular-template-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$init-angular-template-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $init-angular-template-primary,
+      accent: $init-angular-template-accent,
+      warn: $init-angular-template-warn
+    )
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($init-angular-template-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+// -- titles size
+
+.mat-h1,
+.mat-headline,
+.mat-typography h1 {
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.mat-h2,
+.mat-headline,
+.mat-typography h2 {
+  font-weight: 400;
+  font-size: 36px;
+}
+
+.mat-h3,
+.mat-headline,
+.mat-typography h3 {
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.mat-h4,
+.mat-headline,
+.mat-typography h4 {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.mat-h5,
+.mat-headline,
+.mat-typography h5 {
+  font-weight: 400;
+  font-size: 21px;
+  margin: 0 0 5px;
+}
+
+.mat-h6,
+.mat-headline,
+.mat-typography h6 {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.mat-body p,
+.mat-body-1 p,
+.mat-typography p {
+  margin-bottom: 16px;
+  line-height: normal;
+}
+
+// --
+
+// -- modify components material
+
+.mat-mdc-table .mdc-data-table__header-row {
+  height: 26px;
+  background: rgb(60, 75, 158);
+}
+
+.mat-sort-header-content {
+  color: white;
+}
+
+.mdc-data-table__cell {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid rgb(20, 13, 13, 0.6);
+  border-bottom: 1px solid rgb(20, 13, 13, 0.6) !important;
+}
+
+.mdc-data-table__header-cell {
+  border: 1px solid rgba(209, 209, 209, 0.6);
+}
+
+.mat-mdc-paginator {
+  background: transparent !important;
+  color: colors.$black;
+  font-size: 12px;
+}
+
+.mat-mdc-paginator-icon {
+  color: colors.$white;
+}
+
+.mat-mdc-paginator-container {
+  flex-wrap: nowrap !important;
+  justify-content: flex-end !important;
+}
+
+.mat-mdc-paginator-range-label {
+  margin: 0px !important;
+  margin-top: 10px !important;
+}
+
+.mat-mdc-paginator-page-size-select {
+  width: 80px !important;
+  height: 20px;
+}
+
+button.mat-fab .mat-button-wrapper {
+  padding: 0;
+}
+
+.mat-card {
+  color: variables.$card-font-color;
+  margin: 16px;
+}
+
+.mat-card-title p {
+  font-size: 21px;
+  font-weight: 400;
+  color: variables.$card-title-font-color;
+}
+
+mat-toolbar.page-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 24px 16px 24px;
+  background: none;
+  height: auto;
+
+  @media (max-width: variables.$small) {
+    flex-direction: column;
+    align-items: baseline;
+  }
+}
+
+.mat-toolbar h1 {
+  font-weight: 400;
+  font-size: 38.4px;
+  color: variables.$toolbar-title-font-color;
+  line-height: 1;
+  letter-spacing: -0.2186px;
+
+  @media (max-width: variables.$small) {
+    white-space: normal;
+  }
+}
+
+mat-tab-header .mat-tab-label,
+.mat-tab-link {
+  text-transform: uppercase;
+  color: variables.$tabs-header-font-color;
+  font-weight: font.$fw-normal;
+  width: 50%;
+  min-width: 0;
+  padding: 0;
+  opacity: 1;
+}
+
+mat-tab-header .mat-tab-label-active {
+  color: variables.$tabs-header-font-color-active;
+}
+
+mat-tab-group.mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: variables.$tabs-ink-bar-color;
+}
+
+mat-tab-body div.mat-tab-body-content {
+  overflow: hidden;
+}
+
+.mat-raised-blue {
+  background-color: colors.$blue;
+  color: colors.$white;
+}
+
+.mat-raised-red {
+  background-color: colors.$red;
+  color: colors.$white;
+}
+
+.mat-raised-yellow {
+  background-color: colors.$yellow;
+  color: colors.$white;
+}
+
+.fab-blue {
+  background-color: colors.$blue !important;
+}
+
+.fab-red {
+  background-color: colors.$red !important;
+}
+
+button.mat-mini-fab .mat-button-wrapper {
+  padding: 0;
+  vertical-align: middle;
+  margin-left: 1px;
+  margin-bottom: 2px;
+}
+
+button.mat-mini-fab {
+  height: 32px;
+  width: 32px;
+}
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}
+
+div.mat-menu-panel {
+  margin-top: 20px;
+}
+
+.fa {
+  font-size: 1.5em;
+}
+
+//scroll matDialog
+.cdk-global-overlay-wrapper {
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  background-color: variables.$scrollbar-track-color;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: variables.$scrollbar-track-piece-color;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: colors.$light-grey;
+  border-radius: 36px;
+}
+::-webkit-scrollbar-corner {
+  background-color: variables.$scrollbar-corner-color;
+}
+
+// --
+
+// -- icon close popup
+.icon-close-popup {
+  &:hover {
+    cursor: pointer;
+    font-weight: font.$fw-bold;
+    color: colors.$black;
+  }
+}
+
+// --
+
+// -- Style swalAlert 2
+.swal2-popup.swal2-toast {
+  padding: 0px 8px 0px 8px !important;
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+  margin: 8px 0px 0px 8px !important;
+  font-weight: font.$fw-bold;
+  color: colors.$white;
+}
+
+.swal2-popup.swal2-toast .swal2-html-container {
+  margin: 0px 0px 6px 8px !important;
+  color: colors.$white;
+}
+
+.swal2-icon.swal2-warning {
+  color: gray !important;
+}
+
+.swal2-icon.swal2-info {
+  border-color: colors.$marshmallow-tertiary !important;
+  color: colors.$marshmallow-tertiary !important;
+}
+
+.swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+  background-color: colors.$white !important;
+}
+
+.swal2-popup.swal2-toast .swal2-close {
+  color: colors.$white;
+}
+
+.swal2-loader {
+  border-color: colors.$marshmallow-template transparent
+    colors.$marshmallow-template transparent !important;
+}
+
+.swal2-html-container {
+  margin: 0 !important;
+  font-size: font.$fs-normal !important;
+}
+
+.swal2-popup .swal2-styled:focus {
+  box-shadow: none !important;
+}
+
+.swal2-title {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.swal2-styled.swal2-confirm {
+  font-size: font.$fs-small !important;
+}
+
+.swal2-styled.swal2-cancel {
+  font-size: font.$fs-small !important;
+}
+
+.mat-badge-medium .mat-badge-content{
+  padding-top: 3px !important;
+}

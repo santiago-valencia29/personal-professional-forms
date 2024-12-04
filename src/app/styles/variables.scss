@@ -1,0 +1,75 @@
+@use 'colors' as colors;
+
+//== Viewports
+
+$extra-small: 576px;
+$small: 576px;
+$medium: 768px;
+$normal: 1024px;
+$large: 992px;
+$extra-large: 1200px;
+
+//== Sidebar
+
+$sidebar-width: 210px;
+$sidebar-font-color: colors.$gray-08;
+$sidebar-font-color-active: colors.$dark-grey;
+$sidebar-background-color-active: colors.$blue-white;
+$sidebar-background-color-hover: colors.$blue-white;
+$sidebar-icon-color-active: colors.$marshmallow-template;
+$sidebar-icon-color: colors.$gray-06;
+$sidebar-title-color: $sidebar-font-color;
+$sidebar-circle-color: colors.$light-grey;
+
+//== Material Card
+
+$card-font-color: colors.$dark-grey;
+$card-title-font-color: colors.$grey;
+
+//== Material Toolbar
+
+$toolbar-title-font-color: colors.$light-grey;
+$toolbar-button-font-color: colors.$white;
+$toolbar-button-background-color: colors.$pink;
+$toolbar-button-background-color-active: colors.$dark-pink;
+
+//== Material Sidebar Content
+
+$sidebar-content-padding: 48px;
+
+//== Material Tabs
+
+$tabs-header-font-color: colors.$light-grey;
+$tabs-header-font-color-active: colors.$blue;
+$tabs-ink-bar-color: colors.$blue;
+
+//== Scroll bar
+
+$scrollbar-track-color: colors.$light-grey;
+$scrollbar-track-piece-color: colors.$white;
+$scrollbar-thumb-color: colors.$light-grey;
+$scrollbar-corner-color: colors.$light-grey;
+
+//== Header
+
+$header-background-color: colors.$marshmallow-template;
+$header-height: 64px;
+$header-button-background-color: colors.$marshmallow-secundary;
+$header-button-background-color-hover: colors.$black-08;
+$header-button-font-color: colors.$white;
+$header-title-font-color: colors.$white;
+
+//== Footer
+
+$footer-link-color: colors.$white;
+$footer-icon-color: colors.$white;
+$footer-icon-background-color-hover: colors.$black-08;
+
+//== Settings menu element
+
+$settings-button-background-color: colors.$white;
+$settings-button-background-color-hover: colors.$blue;
+$settings-button-color: colors.$light-grey;
+$settings-button-color-hover: colors.$white-35;
+$settings-menu-font-color: colors.$dark-grey;
+$settings-menu-background-color-hover: colors.$blue-white;
