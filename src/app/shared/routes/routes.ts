@@ -3,7 +3,7 @@ export enum routes {
   HOME = '/home',
 
   // -- Module Comunication routes children
-  UI_ELEMENTS = '/ui-elements',
-  UI_ICONS = '/ui/icons',
-  UI_SLIDER = '/ui/slider'
+  FORMS_CONTAINER = '/forms-container',
+  PERSONAL_FORM = '/forms/personal-form',
+  PROFESSIONAL_FORM = '/forms/professional-form'
 }

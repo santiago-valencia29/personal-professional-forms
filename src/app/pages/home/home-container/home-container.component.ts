@@ -11,7 +11,7 @@ export class HomeContainerComponent implements OnInit {
   private _titleService = inject(Title)
 
   constructor() {
-    this._titleService.setTitle('Home')
+    this._titleService.setTitle('Inicio')
   }
 
   ngOnInit() {}

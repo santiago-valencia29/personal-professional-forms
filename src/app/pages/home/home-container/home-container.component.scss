@@ -1,0 +1,10 @@
+@use 'src/app/styles/colors' as colors;
+
+
+.content-background {
+  text-align: center;
+  padding: 10px;
+  margin:10px;
+  background-color: colors.$background-color-2;
+  border-radius: 8px;
+}

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { AngularMaterialModule } from '../app-material.module'
-import { NotFoundComponent } from './not-found/not-found.component'
 import { FooterComponent } from './footer/footer.component'
 import { HeaderModule } from './header/header.module'
 import { SidebarComponent } from './sidebar/sidebar.component'
@@ -10,7 +9,6 @@ import { LayoutComponent } from './layout/layout.component'
 
 @NgModule({
   declarations: [
-    NotFoundComponent,
     FooterComponent,
     SidebarComponent,
     LayoutComponent
@@ -22,7 +20,6 @@ import { LayoutComponent } from './layout/layout.component'
     AngularMaterialModule,
   ],
   exports: [
-    NotFoundComponent,
     FooterComponent,
     SidebarComponent,
     LayoutComponent

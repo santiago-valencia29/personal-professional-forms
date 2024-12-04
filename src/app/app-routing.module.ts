@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core'
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router'
 import { HomeContainerComponent } from './pages/home/home-container/home-container.component'
-import { NotFoundComponent } from './shared/not-found/not-found.component'
-import { UiElementsComponent } from './pages/ui-elements/containers/ui-elements/ui-elements.component'
+import { FormsContainerComponent } from './pages/forms/containers/forms-container/forms-container.component'
 
 const routes: Routes = [
   //Path classic when you don't have lazy loading
@@ -12,21 +11,15 @@ const routes: Routes = [
     component: HomeContainerComponent
   },
   {
-    path: 'ui-elements',
+    path: 'forms-container',
     pathMatch: 'full',
-    component: UiElementsComponent
+    component: FormsContainerComponent
   },
   {
     //lazy loading for Modules
-    path: 'ui',
+    path: 'forms',
     loadChildren: () =>
-      import('./pages/ui-elements/ui-elements.module').then(
-        (m) => m.UiElementsModule
-      )
-  },
-  {
-    path: 'not-found',
-    component: NotFoundComponent
+      import('./pages/forms/forms-container.module').then((m) => m.FormsContainerModule)
   },
   {
     path: '**',
