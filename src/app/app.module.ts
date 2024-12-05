@@ -10,6 +10,11 @@ import { FormsContainerModule } from './pages/forms/forms-container.module'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from 'src/environments/environment'
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { ProfessionalState } from './shared/store/professional.state'
+import { PersonalState } from './shared/store/personal.state'
 
 
 @NgModule({
@@ -23,6 +28,11 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
     SharedModule,
     HomeModule,
     FormsContainerModule,
+
+    NgxsModule.forRoot([ProfessionalState,PersonalState]),
+    NgxsLoggerPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+
     ServiceWorkerModule.register('ngsw-worker.js', {
       // enabled: !isDevMode(),
       enabled: environment.production,

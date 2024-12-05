@@ -3,3 +3,8 @@ export interface ProfessionalData {
   startDate: Date
   endDate: Date
 }
+
+export interface ResponseProfessionalData {
+  message:string
+  professional:ProfessionalData
+}

@@ -12,7 +12,7 @@
         <mat-form-field class="w-100" appearance="fill">
           <mat-label>Empresa</mat-label>
           <input matInput formControlName="company" placeholder="Ingresa el nombre de la empresa" />
-          <mat-error *ngIf="formProfessional.get('company')?.invalid">
+          <mat-error *ngIf="formProfessional.get('company')?.hasError('required')">
             El nombre de la empresa es requerido
           </mat-error>
         </mat-form-field>
@@ -35,10 +35,13 @@
         </mat-form-field>
 
         <div class="d-flex justify-content-center mt-3">
-          <button *ngIf="!isReadOnly" [disabled]="!formProfessional.valid" mat-raised-button color="primary"
-            class="me-2" >
+          <button (click)="saveProfessional()" *ngIf="!isReadOnly" [disabled]="!formProfessional.valid"
+            mat-raised-button color="primary" class="me-2">
             Guardar
           </button>
+          <button routerLink="/forms/professional-form" *ngIf="isReadOnly" mat-raised-button color="primary"
+            class="me-2">
+            Registro Nuevo </button>
         </div>
       </form>
     </div>

@@ -66,7 +66,7 @@
             </ng-container>
 
             <ng-container matColumnDef="company">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Compañía</th>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Empresa</th>
               <td mat-cell *matCellDef="let row">{{ row.company }}</td>
             </ng-container>
 
@@ -96,6 +96,15 @@
 
             <tr mat-header-row *matHeaderRowDef="professionalDataColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: professionalDataColumns"></tr>
+            <tr *matNoDataRow>
+              <td class="text-danger text-center" [attr.colspan]="professionalDataColumns.length">
+                <ng-container *ngIf="dataSourceProfessionalData.data.length > 0; else noData">
+                </ng-container>
+                <ng-template #noData>
+                  No hay registros
+                </ng-template>
+              </td>
+            </tr>
           </table>
         </div>
       </div>

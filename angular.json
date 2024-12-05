@@ -18,9 +18,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "allowedCommonJsDependencies": ["sweetalert2", "aos"],
-            "outputPath": {
-              "base": "dist/personal-professional-forms"
-            },
+            "outputPath": "dist/personal-professional-forms",
             "index": "src/index.html",
             "polyfills": [
               "zone.js",
@@ -102,6 +100,9 @@
             "styles": ["src/styles.scss"],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
