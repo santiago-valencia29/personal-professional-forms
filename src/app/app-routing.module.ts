@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomeContainerComponent
   },
   {
-    path: 'forms-container',
+    path: 'forms-answers',
     pathMatch: 'full',
     component: FormsContainerComponent
   },

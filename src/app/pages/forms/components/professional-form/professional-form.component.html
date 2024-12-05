@@ -1,7 +1,46 @@
 <app-layout>
   <div class="container-fluid mt-2 min-vh-100">
+
     <div class="row mb-2">
-      <h6 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">Formulario de Datos Profesionales</h6>
+      <h6 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
+        {{ isReadOnly ? 'Solo lectura - Datos Profesionales' : 'Formulario de Datos Profesionales' }}
+      </h6>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <form [formGroup]="formProfessional" class="d-flex flex-column gap-3">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Empresa</mat-label>
+          <input matInput formControlName="company" placeholder="Ingresa el nombre de la empresa" />
+          <mat-error *ngIf="formProfessional.get('company')?.invalid">
+            El nombre de la empresa es requerido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Fecha Inicio - Fecha Fin</mat-label>
+          <mat-date-range-input [formGroup]="dateRangeGroup" [rangePicker]="picker">
+            <input matStartDate formControlName="start" placeholder="Fecha de inicio" />
+            <input matEndDate formControlName="end" placeholder="Fecha de fin" />
+          </mat-date-range-input>
+          <mat-hint>DD/MM/AAAA – DD/MM/AAAA</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+          <mat-error *ngIf="formProfessional.get('dateRange.start')?.hasError('required')">
+            Fecha de inicio requerida
+          </mat-error>
+          <mat-error *ngIf="formProfessional.get('dateRange.end')?.hasError('required')">
+            Fecha de fin requerida
+          </mat-error>
+        </mat-form-field>
+
+        <div class="d-flex justify-content-center mt-3">
+          <button *ngIf="!isReadOnly" [disabled]="!formProfessional.valid" mat-raised-button color="primary"
+            class="me-2" >
+            Guardar
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 

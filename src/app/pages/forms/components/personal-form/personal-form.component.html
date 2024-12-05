@@ -1,10 +1,49 @@
 <app-layout>
   <div class="container-fluid mt-2 min-vh-100">
     <div class="row mb-2">
-      <h6 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">Formulario de Datos Personales</h6>
+      <h6 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
+        {{ isReadOnly ? 'Solo lectura - Datos Personales' : 'Formulario de Datos Personales' }}
+      </h6>
+
     </div>
 
+    <div class="col-12 col-md-4">
 
+      <form [formGroup]="formPersonal" class="d-flex flex-column gap-2">
+
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" placeholder="Ingresa tu nombre" />
+          <mat-error *ngIf="formPersonal.get('name')?.invalid">
+            El Nombre es requerido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Apellidos</mat-label>
+          <input matInput formControlName="surname" placeholder="Ingresa tus apellidos" />
+          <mat-error *ngIf="formPersonal.get('surname')?.invalid">
+            Los Apellidos son requeridos </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Documento de Identidad</mat-label>
+          <input matInput formControlName="documentId" placeholder="Ingresa tu documento de identidad" />
+          <mat-error *ngIf="formPersonal.get('documentId')?.hasError('required')">
+            El Documento es requerido
+          </mat-error>
+          <mat-error *ngIf="formPersonal.get('documentId')?.hasError('pattern')">
+            El Documento debe contener solo números
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <div class="d-flex justify-content-center mt-3">
+        <button *ngIf="!isReadOnly" [disabled]="!formPersonal.valid" color="primary" mat-raised-button class="me-2">
+          Guardar
+        </button>
+      </div>
+    </div>
   </div>
 
   <app-footer></app-footer>

@@ -1,10 +1,107 @@
 <app-layout>
   <div class="container-fluid mt-2 min-vh-100">
     <div class="mb-3">
-
-
-      <h6 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">Respuestas</h6>
+      <h6 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">Respuestas</h6>
     </div>
+
+    <div class="d-flex flex-column flex-md-row flex-sm-wrap justify-content-between">
+
+      <div class="mb-3">
+        <h5>Datos Personales</h5>
+        <div class="container-table">
+          <table mat-table [dataSource]="dataSourcePersonalData"  matSort #sortPersonal="matSort">
+
+            <ng-container matColumnDef="#">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+              <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+              <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="surname">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellidos</th>
+              <td mat-cell *matCellDef="let row">{{ row.surname }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="documentId">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>ID Documento</th>
+              <td mat-cell *matCellDef="let row">{{ row.documentId }}</td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="view">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header >Ver</th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button [routerLink]="['/forms/personal-form']" [queryParams]="{ name: row.name, surname: row.surname, documentId: row.documentId }">
+                  <mat-icon>read_more</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="personalDataColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: personalDataColumns; let i = index"></tr>
+            <tr *matNoDataRow>
+              <td class="text-danger text-center" [attr.colspan]="personalDataColumns.length">
+                <ng-container *ngIf="dataSourcePersonalData.data.length > 0; else noData">
+                </ng-container>
+                <ng-template #noData>
+                  No hay registros
+                </ng-template>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <h5>Datos Profesionales</h5>
+        <div class="container-table">
+          <table mat-table [dataSource]="dataSourceProfessionalData" matSort #sortProfessional="matSort">
+
+            <ng-container matColumnDef="#">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+              <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="company">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Compañía</th>
+              <td mat-cell *matCellDef="let row">{{ row.company }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="startDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Ingreso</th>
+              <td mat-cell *matCellDef="let row">{{ row.startDate | date: 'MMMM d, y'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="endDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Retiro</th>
+              <td mat-cell *matCellDef="let row">{{ row.endDate | date: 'MMMM d, y' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header >Ver</th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button [routerLink]="['/forms/professional-form']"
+                [queryParams]="{
+                  company: row.company,
+                  startDate: row.startDate,
+                  endDate: row.endDate
+                }">
+                  <mat-icon>read_more</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="professionalDataColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: professionalDataColumns"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <app-footer></app-footer>

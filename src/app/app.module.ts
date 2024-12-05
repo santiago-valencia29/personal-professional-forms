@@ -11,6 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from 'src/environments/environment'
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 
+
 @NgModule({
   declarations: [AppComponent],
   bootstrap: [AppComponent],
@@ -30,6 +31,9 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
       registrationStrategy: 'registerImmediately'
     })
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi())]
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
+
+  ]
 })
 export class AppModule {}
