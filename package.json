@@ -10,7 +10,9 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "start-pwa": "ng build --configuration production --aot --base-href=/ && http-server -p 8080 -c-1 dist/personal-professional-forms",
     "deploy": "ng build --configuration production --aot && firebase deploy",
-    "build:tokens-figma": "style-dictionary build"
+    "build:tokens-figma": "style-dictionary build",
+    "sync-tokens-to-figma": "tsx src/app/styles/config-sync-figma/sync_tokens_to_figma.ts",
+    "sync-figma-to-tokens": "tsx src/app/styles/config-sync-figma/sync_figma_to_tokens.ts"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +28,7 @@
     "@angular/platform-browser-dynamic": "17.3.12",
     "@angular/router": "17.3.12",
     "@angular/service-worker": "17.3.12",
+    "@figma/rest-api-spec": "^0.22.0",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "@ngxs/devtools-plugin": "^18.0.0",
     "@ngxs/logger-plugin": "^18.0.0",
@@ -34,6 +37,7 @@
     "@primeng/themes": "^19.0.3",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+    "axios": "^1.7.9",
     "bootstrap": "^5.2.3",
     "http-server": "^14.1.1",
     "jest-preset-angular": "^14.4.2",
@@ -45,6 +49,7 @@
     "subsink": "^1.0.2",
     "sweetalert2": "^11.7.3",
     "tslib": "^2.3.0",
+    "tsx": "^4.19.2",
     "zone.js": "~0.14.0"
   },
   "devDependencies": {
