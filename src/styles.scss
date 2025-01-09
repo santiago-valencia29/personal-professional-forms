@@ -5,12 +5,15 @@
 @use 'src/app/styles/colors' as colors;
 @use 'src/app/styles/variables' as variables;
 @use 'src/app/styles/font' as font;
+@use 'src/app/styles/_primeng-variables' as primeng;
 
 // bootstrap V5
 @use 'bootstrap/scss/bootstrap';
 
 // Animate.css
 @use 'animate.css';
+
+@use 'primeicons/primeicons.css';
 
 // Plus imports for other components in your app.
 
@@ -376,3 +379,15 @@ div.mat-menu-panel {
 .mat-badge-medium .mat-badge-content{
   padding-top: 3px !important;
 }
+
+
+
+// primeng
+
+// .p-button {
+//   background-color: primeng.$aura-form-field-invalid-border-color;
+// }
+
+// .p-listbox:not(.p-disabled) .p-listbox-item.p-highlight.p-focus {
+//   background: primeng.$aura-content-hover-background;
+// }

@@ -1,5 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core'
 import { Title } from '@angular/platform-browser'
+import { MenuItem, MessageService } from 'primeng/api'
+
+interface City {
+  name: string
+  code: string
+}
 
 @Component({
   selector: 'app-home-container',
@@ -8,9 +14,11 @@ import { Title } from '@angular/platform-browser'
   standalone: false
 })
 export class HomeContainerComponent implements OnInit {
+  display: boolean = true
+
   private _titleService = inject(Title)
 
-  constructor() {
+  constructor(private messageService: MessageService) {
     this._titleService.setTitle('Inicio')
   }
 

@@ -20,21 +20,22 @@
             "allowedCommonJsDependencies": ["sweetalert2", "aos"],
             "outputPath": "dist/personal-professional-forms",
             "index": "src/index.html",
-            "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
-            ],
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
-            "styles": ["src/styles.scss", "./node_modules/aos/dist/aos.css"],
+            "styles": [
+              "src/styles.scss",
+              "./node_modules/aos/dist/aos.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "./node_modules/primeng/resources/primeng.min.css",
+              "./node_modules/primeflex/primeflex.css"
+            ],
             "scripts": [],
             "serviceWorker": "ngsw-config.json",
             "browser": "src/main.ts",
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "."
-              ]
+              "includePaths": ["."]
             }
           },
           "configurations": {
