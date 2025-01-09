@@ -1,16 +1,39 @@
 <app-layout>
+
   <div class="container-fluid mt-2 min-vh-100">
-    <h4 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">Inicio</h4>
+
+
+
+    <p-button label="Click Me" icon="pi pi-check"></p-button>
+
+    <div class="card flex justify-center">
+      <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" />
+  </div>
+
+
+
+    <p-dialog header="PrimeNG Dialog" [(visible)]="display">
+      <p>¡Este es un cuadro de diálogo de PrimeNG!</p>
+      <button pButton type="button" label="Cerrar" (click)="display = false"></button>
+    </p-dialog>
+
+
+
+    <!-- <h4 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="600">Inicio</h4>
 
     <p class="lead content-background" data-aos="fade-up" data-aos-duration="600">
-      Bienvenido al panel de formularios. Aquí podrás explorar un sistema diseño para registrar y visualizar datos personales y profesionales, utilizando tecnologías de última generación.
+      Bienvenido al panel de formularios. Aquí podrás explorar un sistema diseño para registrar y visualizar datos
+      personales y profesionales, utilizando tecnologías de última generación.
     </p>
 
 
-    <img src="assets/images/angular.png" alt="Imagen" class="img-fluid mx-auto d-block content-image" data-aos="fade-up" data-aos-duration="600">
+    <img src="assets/images/angular.png" alt="Imagen" class="img-fluid mx-auto d-block content-image" data-aos="fade-up"
+      data-aos-duration="600">
     <p class="lead content-background" data-aos="fade-up" data-aos-duration="600">
-      Este proyecto está construido utilizando <strong>Angular 17.3.12</strong>, <strong>Bootstrap 5.3.2 (con diseño responsive)</strong>, <strong>Angular Material</strong>, <strong>Reactive Forms</strong>, <strong>SweetAlert 2</strong> y <strong>NGXS</strong> para el manejo del estado.
-    </p>
+      Este proyecto está construido utilizando <strong>Angular 17.3.12</strong>, <strong>Bootstrap 5.3.2 (con diseño
+        responsive)</strong>, <strong>Angular Material</strong>, <strong>Reactive Forms</strong>, <strong>SweetAlert
+        2</strong> y <strong>NGXS</strong> para el manejo del estado.
+    </p> -->
   </div>
   <app-footer></app-footer>
 </app-layout>

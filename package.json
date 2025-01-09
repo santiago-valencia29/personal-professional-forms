@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "start-pwa": "ng build --configuration production --aot --base-href=/ && http-server -p 8080 -c-1 dist/personal-professional-forms",
-    "deploy": "ng build --configuration production --aot && firebase deploy"
+    "deploy": "ng build --configuration production --aot && firebase deploy",
+    "build:tokens-figma": "style-dictionary build"
   },
   "private": true,
   "dependencies": {
@@ -30,12 +31,15 @@
     "@ngxs/logger-plugin": "^18.0.0",
     "@ngxs/store": "^18.0.0",
     "@popperjs/core": "^2.11.6",
+    "@primeng/themes": "^19.0.3",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "http-server": "^14.1.1",
     "jest-preset-angular": "^14.4.2",
-    "rxjs": "~7.4.0",
+    "primeng": "^17.18.13",
+    "rxjs": "^7.8.1",
+    "style-dictionary": "^4.3.0",
     "subsink": "^1.0.2",
     "sweetalert2": "^11.7.3",
     "tslib": "^2.3.0",
