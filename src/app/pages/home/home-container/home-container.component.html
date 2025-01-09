@@ -8,14 +8,125 @@
 
     <div class="card flex justify-center">
       <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" />
-  </div>
+    </div>
 
 
 
-    <p-dialog header="PrimeNG Dialog" [(visible)]="display">
+    <!-- <p-dialog header="PrimeNG Dialog" [(visible)]="display">
       <p>¡Este es un cuadro de diálogo de PrimeNG!</p>
       <button pButton type="button" label="Cerrar" (click)="display = false"></button>
-    </p-dialog>
+    </p-dialog> -->
+
+    <div class="flex justify-content-center m-2">
+      <p-toast />
+      <p-splitButton label="Save" (onClick)="save('info')" [model]="items" />
+    </div>
+
+    <div class="flex flex-row pt-2 gap-4">
+      <p-iconField iconPosition="left">
+        <p-inputIcon styleClass="pi pi-search" />
+        <input type="text" pInputText placeholder="Search" />
+      </p-iconField>
+      <p-iconField iconPosition="right">
+        <p-inputIcon styleClass="pi pi-spinner pi-spin" />
+        <input type="text" pInputText />
+      </p-iconField>
+    </div>
+
+    <div class="flex flex-row pt-2 gap-4">
+      <i class="pi pi-check"></i>
+      <i class="pi pi-times"></i>
+      <span class="pi pi-search"></span>
+      <span class="pi pi-user"></span>
+    </div>
+
+    <div class="flex flex-row m-4">
+      <p-inputGroup>
+        <button type="button" pButton label="Search"></button>
+        <input type="text" pInputText placeholder="Keyword" />
+      </p-inputGroup>
+      <p-inputGroup>
+        <input type="text" pInputText placeholder="Keyword" />
+        <button type="button" pButton icon="pi pi-search" class="p-button-warning"></button>
+      </p-inputGroup>
+      <p-inputGroup>
+        <button type="button" pButton icon="pi pi-check" class="p-button-success"></button>
+        <input type="text" pInputText placeholder="Vote" />
+        <button type="button" pButton icon="pi pi-times" class="p-button-danger"></button>
+      </p-inputGroup>
+    </div>
+
+    <div class="flex flex-row flex-wrap gap-6 fadeoutdown animation-duration-1000">
+      <div
+        class="flex align-items-center justify-content-center w-20rem h-20rem bg-yellow-700 font-bold border-round m-2">
+        1</div>
+      <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-blue-100 font-bold border-round m-2">2
+      </div>
+      <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2">3
+      </div>
+    </div>
+
+    <div class="flex flex-wrap md:justify-content-between justify-content-center">
+      <div
+        class="surface-ground hover:surface-500 border-round surface-border border-3 text-surface-100 font-bold m-2 flex align-items-center justify-content-center"
+        style="min-width: 200px; min-height: 100px">
+        surface-ground <br /> surface-border
+      </div>
+      <div
+        class="surface-section hover:surface-500 border-round text-surface-100 font-bold m-2 flex align-items-center justify-content-center"
+        style="min-width: 200px; min-height: 100px">
+        surface-section
+      </div>
+      <div
+        class="surface-card hover:surface-500 border-round surface-border border-3 text-surface-100 font-bold m-2 flex align-items-center justify-content-center"
+        style="min-width: 200px; min-height: 100px">
+        surface-card
+      </div>
+    </div>
+
+    <div class="formgrid grid">
+      <div class="field col-12 md:col-6">
+        <label for="firstname6">Firstname</label>
+        <input id="firstname6" type="text"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="lastname6">Lastname</label>
+        <input id="lastname6" type="text"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+
+      <div class="field col-12">
+        <label for="address">Address</label>
+        <textarea id="address" type="text" rows="4"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
+      </div>
+
+      <div class="field col-12 md:col-6">
+        <label for="city">City</label>
+        <input id="city" type="text"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+
+      <div class="field col-12 md:col-3">
+        <label for="state">State</label>
+        <select id="state"
+          class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+          style="appearance: auto">
+          <option>Arizona</option>
+          <option>California</option>
+          <option>Florida</option>
+          <option>Ohio</option>
+          <option>Washington</option>
+        </select>
+      </div>
+      <div class="field col-12 md:col-3">
+        <label for="zip">Zip</label>
+        <input id="zip" type="text"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      </div>
+    </div>
+
 
 
 
